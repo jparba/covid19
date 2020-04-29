@@ -34,7 +34,23 @@ Vue.mixin({
 
 const router = new VueRouter({
 	routes: [
-		{ path: '', component: AllListCovid },
+		{
+			path: '',
+			component: AllListCovid,
+			meta: {
+			  title: 'JPARBA | Covid-19',
+			  metaTags: [
+			    {
+			      name: 'description',
+			      content: 'The home page of our example app.'
+			    },
+			    {
+			      property: 'og:description',
+			      content: 'The home page of our example app.'
+			    }
+			  ]
+			}
+		},
 		{ path: '/country/:country', component: SingleCountry, props: true },
 		{ path: '/credits', component: Credits },
 		{ path: '/serviceunavailable', component: ServiceUnavailable },
