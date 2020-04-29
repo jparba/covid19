@@ -38,17 +38,17 @@ const router = new VueRouter({
 			path: '',
 			component: AllListCovid,
 			meta: {
-			  title: 'JPARBA | Covid-19',
-			  metaTags: [
-			    {
-			      name: 'description',
-			      content: 'The home page of our example app.'
-			    },
-			    {
-			      property: 'og:description',
-			      content: 'The home page of our example app.'
-			    }
-			  ]
+				title: 'JPARBA | Covid-19',
+				metaTags: [
+				{
+					name: 'description',
+					content: 'The home page of our example app.'
+				},
+				{
+					property: 'og:description',
+					content: 'The home page of our example app.'
+				}
+				]
 			}
 		},
 		{ path: '/country/:country', component: SingleCountry, props: true },
