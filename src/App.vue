@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <headerComponent/>
-    <p class="container text-center mt-4">{{ date }}</p>
+    <p class="container text-center mt-4 time">{{ date }}</p>
     <router-view></router-view>
     <!-- <Footer/> -->
   </div>

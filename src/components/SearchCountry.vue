@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="close_autocomplete" @click="showfilteredCountries = false"></div>
-		<div class="container posr d-flex flex-column align-items-center mt-5">
+		<div class="container posr p-0 d-flex flex-column align-items-center mt-5">
 			<input type="text" class="z2 form-control mw-500" placeholder="Search by country" v-model="inputCountry" @focus="showfilteredCountries = true">
 			<div v-if="filteredCountries && showfilteredCountries" class="mw-500">
 				<ul class="countrylist">

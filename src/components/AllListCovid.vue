@@ -81,7 +81,7 @@
 				</li>
 			</ul>
 		</div>
-		<ul v-if="coronaLists != '' && !loading" class="row">
+		<ul v-if="coronaLists != '' && !loading" class="row country_affected">
 			<li class="col-md-4 col-sm-6 mb-4" v-for="(coronaList, index) in coronaLists" :key="index">
 				<router-link :to="{ path: `/country/${coronaList.country}` }">
 				<!-- <a href=""> -->

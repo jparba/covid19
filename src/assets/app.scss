@@ -15,6 +15,9 @@ ul{
 		list-style: none;
 	}
 }
+input{
+	font-size: 16px;
+}
 nav{
 	li{
 		&:not(:last-child){
@@ -243,4 +246,38 @@ header{
   opacity: 0;
   -webkit-animation: spinner-grow .75s linear infinite;
   animation: spinner-grow .75s linear infinite;
+}
+
+@media only screen and (max-width: 850px) {
+	.country_affected{
+		.col-md-4{
+			-webkit-box-flex: 0;
+		    flex: 0 0 50%;
+		    max-width: 50%;
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.country_affected{
+		.col-md-4{
+			-webkit-box-flex: 0;
+		    flex: 0 0 100%;
+		    max-width: 100%;
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	nav {
+		a{
+			font-size: 16px;
+		}
+	}
+	.logo{
+		font-size: 20px;
+	}
+	.time{
+		font-size: 14px;
+	}
 }
