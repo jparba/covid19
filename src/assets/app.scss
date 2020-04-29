@@ -161,7 +161,10 @@ header{
 	.totalcase{
 		font-size: 50px;
 		margin-bottom: 0;
-		color: yellow;
+		span:first-child{
+			color: #ffff00;
+			font-size: 40px;
+		}
 	}
 	p{
 		font-weight: bold;
@@ -271,6 +274,9 @@ header{
 }
 
 @media only screen and (max-width: 400px) {
+	header{
+		padding: 10px 0;
+	}
 	nav {
 		a{
 			font-size: 16px;
