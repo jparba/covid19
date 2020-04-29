@@ -1,6 +1,7 @@
 body{
-	background-color: #252525;
 	color: #fff;
+	background-color: #252525;
+	font-family: noto sans,sans-serif;
 }
 a{
 	&:hover{
@@ -36,6 +37,7 @@ h5{
 }
 header{
 	color: #fff;
+	padding: 5px;
 	background-color: #333;
 }
 .d-flex{
@@ -56,11 +58,20 @@ header{
 .bg-semipink{
 	background-color: #f78259;
 }
+.lightblue{
+	color: #4f9ff5!important;
+}
+.sm-container{
+	max-width: 650px;
+}
 .z2{
 	z-index: 2;
 }
 .posr{
 	position: relative;
+}
+.logo{
+	font-size: 32px;
 }
 .card{
 	color: #fff;

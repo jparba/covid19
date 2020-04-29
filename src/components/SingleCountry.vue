@@ -119,11 +119,6 @@
 		created() {
 			this.fetchSingleCountry();
 		},
-		// updated() {
-		// 	this.loading = true;
-		// 	this.fetchSingleCountry();
-		// 	this.loading = false;
-		// }
 	}
 </script>
 

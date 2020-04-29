@@ -3,14 +3,14 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <headerComponent/>
     <p class="container text-center mt-4">{{ date }}</p>
-    <!-- <SearchCountry/> -->
     <router-view></router-view>
+    <!-- <Footer/> -->
   </div>
 </template>
 
 <script>
+  // import Footer from './components/Footer.vue'
   import headerComponent from './components/headerComponent.vue'
-  // import SearchCountry from './components/SearchCountry.vue'
 export default {
   data() {
     return {
@@ -19,8 +19,8 @@ export default {
   },
   name: 'App',
   components: {
+    // Footer,
     headerComponent,
-    // SearchCountry,
   },
   methods: {
     getCurrentDateTime() {
@@ -29,8 +29,6 @@ export default {
         const weekday = ' | '+today.toLocaleString('default', { weekday: 'long' });
         const date = monthName+' '+today.getDate()+','+today.getFullYear();
         const time = today.toLocaleString('default', { hour: 'numeric', minute: 'numeric', second: 'numeric' ,hour12: true });
-        // console.log(this.date = date+' '+ weekday + ' ' + time);
-        // console.log(todayS);
         return this.date = 'Today : '+date+' '+ weekday + ' ' + time;
 
     },
@@ -40,10 +38,7 @@ export default {
   },
   mounted() {
     this.blinkDateTime();
-    // this.getTimezoneName();
-    // this.getCurrentDateTime();
-    // this.d();
-  }
+  },
 }
 </script>
 

@@ -55,7 +55,7 @@
 				const country = val.toLowerCase();
 				this.inputCountry = val;
 				this.showfilteredCountries = false;
-				this.$router.push(`/country/${country}`);
+				this.$router.push(`/covid-19/country/${country}`);
 			},
 			filterCountry() {
 				if(this.filteredCountries.length == 0){
