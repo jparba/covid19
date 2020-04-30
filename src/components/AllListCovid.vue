@@ -142,20 +142,35 @@
 
 	export default {
 		name: 'AllListCovid',
+		data() {
+			return {
+				polling: null
+			}
+		},
 		components: {
 			SearchCountry,
 			AnimatedNumber
 		},
 		methods: {
 			...mapActions(['fetchCoronaList', 'fetchworldData']),
+			pollData() {
+				this.polling = setInterval(() => {
+					this.$store.dispatch('fetchworldData')
+					this.$store.dispatch('fetchCoronaList')
+				}, 120000);
+			}
 		},
 		computed: {
 			...mapGetters(['coronaLists', 'worldData', 'loading']),
 		},
-		mounted() {
+		created() {
+			this.pollData();
 			this.fetchworldData();
 			this.fetchCoronaList();
-		}
+		},
+		beforeDestroy() {
+			clearInterval(this.polling)
+		},
 	}
 </script>
 

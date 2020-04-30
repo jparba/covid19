@@ -78,6 +78,7 @@
 				loading: true,
 				fetchError: false,
 				singleCountry: [],
+				polling: null
 			}
 		},
 		components: {
@@ -88,9 +89,6 @@
 		name: 'SingleCountry',
 		methods: {
 			async fetchSingleCountry() {
-				this.loading = true;
-				this.fetchError = false;
-				this.singleCountry = [];
 				try{
 					const response = await axios.get(`https://corona.lmao.ninja/v2/countries/${this.country}`);
 					this.singleCountry = response.data;
@@ -109,15 +107,21 @@
 					}
 				}
 			},
+			pollData() {
+				this.polling = setInterval(() => {
+					this.fetchSingleCountry()
+				}, 120000);
+			}
 		},
 		watch: {
 			'$route': 'fetchSingleCountry'
-			// country() {
-			// 	this.fetchSingleCountry();
-			// }
 		},
 		created() {
+			this.pollData();
 			this.fetchSingleCountry();
+		},
+		beforeDestroy() {
+			clearInterval(this.polling)
 		},
 	}
 </script>
