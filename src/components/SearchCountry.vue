@@ -32,7 +32,7 @@
 		methods: {
 			listCountry() {
 				const countryArray = this.countries;
-				axios.get('https://corona.lmao.ninja/v2/countries')
+				axios.get('https://disease.sh/v2/countries')
 					.then( function(response){
 						const rr = response.data.length;
 						for (var i = 0; i < rr; i++) {

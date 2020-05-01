@@ -90,7 +90,7 @@
 		methods: {
 			async fetchSingleCountry() {
 				try{
-					const response = await axios.get(`https://corona.lmao.ninja/v2/countries/${this.country}`);
+					const response = await axios.get(`https://disease.sh/v2/countries/${this.country}`);
 					this.singleCountry = response.data;
 					setTimeout(() => {
 						this.loading = false;

@@ -16,7 +16,7 @@ const getters = {
 const actions = {
 	async fetchworldData({commit}) {
 		try{
-			const response = await axios.get('https://corona.lmao.ninja/v2/all');
+			const response = await axios.get('https://disease.sh/v2/all');
 			commit('SETWORLDDATA', response.data);
 			setTimeout(() => {
 				commit('SETLOADING', false);
@@ -28,7 +28,7 @@ const actions = {
 		}
 	},
 	async fetchCoronaList({commit}) {
-		const response = await axios.get('https://corona.lmao.ninja/v2/countries')
+		const response = await axios.get('https://disease.sh/v2/countries')
 		.catch(function (error) {
 			if (error.response) {
 				if (error.response.status == 503 || error.response.status == 404 || error.response.status == 502) {
