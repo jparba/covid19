@@ -16,7 +16,7 @@ const getters = {
 const actions = {
 	async fetchworldData({commit}) {
 		try{
-			const response = await axios.get('https://corona.lmao.ninja/v2/aldl');
+			const response = await axios.get('https://corona.lmao.ninja/v2/all');
 			commit('SETWORLDDATA', response.data);
 			setTimeout(() => {
 				commit('SETLOADING', false);
