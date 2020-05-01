@@ -4,6 +4,7 @@ const state = {
 	loading: true,
 	coronaLists: [],
 	worldData: [],
+	phCases: [],
 }
 
 const getters = {
@@ -14,18 +15,17 @@ const getters = {
 
 const actions = {
 	async fetchworldData({commit}) {
-		const response = await axios.get('https://corona.lmao.ninja/v2/all')
-		.catch(function (error) {
-			if (error.response) {
-				if (error.response.status == 503 || error.response.status == 404 || error.response.status == 502) {
-					window.location.replace("/serviceunavailable");
-				}
+		try{
+			const response = await axios.get('https://corona.lmao.ninja/v2/aldl');
+			commit('SETWORLDDATA', response.data);
+			setTimeout(() => {
+				commit('SETLOADING', false);
+			}, 2000);
+		} catch(error) {
+			if (error.request) {
+				window.location.replace("/serviceunavailable");
 			}
-		});
-		commit('SETWORLDDATA', response.data);
-		setTimeout(() => {
-			commit('SETLOADING', false);
-		}, 2000);
+		}
 	},
 	async fetchCoronaList({commit}) {
 		const response = await axios.get('https://corona.lmao.ninja/v2/countries')

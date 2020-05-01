@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h1>There's  problem with the API</h1>
+	<div class="container text-center">
+		<p class="mt-5">Were fixing something, please check the site later.<br></p>
 	</div>
 </template>
 

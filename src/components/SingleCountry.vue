@@ -101,7 +101,7 @@
 							this.loading = false;
 							this.fetchError = true;
 						}
-						if (error.response.status == 503 || error.response.status == 502) {
+						if (error.request || error.response.status == 503 || error.response.status == 502) {
 							window.location.replace("/serviceunavailable");
 						}
 					}
