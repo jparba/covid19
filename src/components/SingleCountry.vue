@@ -7,7 +7,7 @@
 		</div>
 		<div v-if="fetchError">{{ $route.params.country }} not found or doesn't have any cases</div>
 		<div v-if="singleCountry != '' && !loading" class="mb-5">
-			<h5 class="mt-4 text-center mb-0">Current data of "{{ $route.params.country }}"</h5>
+			<h5 class="mt-4 text-center mb-0">Current data of "{{ $route.params.country.toUpperCase() }}"</h5>
 			<small class="d-block text-center mb-4">Data source : NovelCOVID API</small>
 			<div class="singlerecord text-center">
 				<p class="totalcase"><animated-number :value="singleCountry.cases" :formatValue="formatNum" :duration="1000"/><span>Confirmed cases</span></p>
@@ -17,7 +17,7 @@
 							<h4 class="bg-white">New Cases</h4>
 							<div>
 								<p><animated-number :value="singleCountry.todayCases" :formatValue="formatNum" :duration="1000"/></p>
-								<!-- <label><span class="bg-white">Yesterday</span></label> -->
+								<label><animated-number :value="yesterdayData.todayCases" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-white">Yesterday</span></label>
 							</div>
 						</div>
 					</li>
@@ -26,7 +26,7 @@
 							<h4 class="bg-danger">Today's Death</h4>
 							<div>
 								<p><animated-number :value="singleCountry.todayDeaths" :formatValue="formatNum" :duration="1000"/></p>
-								<!-- <label class="mt-"><span class="bg-danger">Yesterday</span></label> -->
+								<label><animated-number :value="yesterdayData.todayDeaths" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-danger">Yesterday</span></label>
 							</div>
 						</div>
 					</li>
@@ -78,7 +78,8 @@
 				loading: true,
 				fetchError: false,
 				singleCountry: [],
-				polling: null
+				polling: null,
+				yesterdayData: [],
 			}
 		},
 		components: {
@@ -107,6 +108,10 @@
 					}
 				}
 			},
+			async getYesterdayData() {
+				let response = await axios.get(`https://corona.lmao.ninja/v2/countries/${this.country}?yesterday=true&strict=true&query`);
+				return this.yesterdayData = response.data;
+			},
 			pollData() {
 				this.polling = setInterval(() => {
 					this.fetchSingleCountry()
@@ -114,10 +119,15 @@
 			}
 		},
 		watch: {
-			'$route': 'fetchSingleCountry'
+			country() {
+				this.getYesterdayData();
+				this.fetchSingleCountry();
+
+			}
 		},
 		created() {
 			this.pollData();
+			this.getYesterdayData();
 			this.fetchSingleCountry();
 		},
 		beforeDestroy() {

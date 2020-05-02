@@ -36,7 +36,6 @@
 					.then( function(response){
 						const rr = response.data.length;
 						for (var i = 0; i < rr; i++) {
-							// countryArray.push(response.data[i]['country']);
 							countryArray.push(
 								{
 								'country' : response.data[i]['country'],
@@ -62,7 +61,7 @@
 					this.filteredCountries = this.countries
 				}
 				if(this.$route.params.country != undefined){
-					this.inputCountry = this.$route.params.country;
+					this.inputCountry = this.$route.params.country.charAt(0).toUpperCase() + this.$route.params.country.slice(1);
 				}
 			},
 		},

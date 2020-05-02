@@ -4,7 +4,6 @@ const state = {
 	loading: true,
 	coronaLists: [],
 	worldData: [],
-	phCases: [],
 }
 
 const getters = {

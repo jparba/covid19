@@ -24,7 +24,7 @@
 										<h4 class="bg-white">New Cases</h4>
 										<div>
 											<p><animated-number :value="coronaList.todayCases" :formatValue="formatNum" :duration="3000"/></p>
-											<!-- <label><span class="bg-white">Yesterday</span></label> -->
+											<label><animated-number :value="yesterdayData.todayCases" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-white">Yesterday</span></label>
 										</div>
 									</div>
 								</li>
@@ -33,7 +33,7 @@
 										<h4 class="bg-danger">Today's Death</h4>
 										<div>
 											<p><animated-number :value="coronaList.todayDeaths" :formatValue="formatNum" :duration="3000"/></p>
-											<!-- <label class="mt-"><span class="bg-danger">Yesterday</span></label> -->
+											<label><animated-number :value="yesterdayData.todayDeaths" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-danger">Yesterday</span></label>
 										</div>
 									</div>
 								</li>
@@ -209,6 +209,7 @@
 </template>
 
 <script>
+	import axios from 'axios'
 	import { mapActions, mapGetters } from 'vuex'
 	import SearchCountry from './SearchCountry.vue'
 	import AnimatedNumber from "animated-number-vue";
@@ -218,7 +219,8 @@
 		data() {
 			return {
 				polling: null,
-				label: 'Philippines cases'
+				label: 'Philippines cases',
+				yesterdayData: []
 			}
 		},
 		components: {
@@ -232,6 +234,10 @@
 					this.$store.dispatch('fetchworldData')
 					this.$store.dispatch('fetchCoronaList')
 				}, 120000);
+			},
+			async getYesterdayData(countryName) {
+				let response = await axios.get(`https://corona.lmao.ninja/v2/countries/${countryName}?yesterday=true&strict=true&query`);
+				return this.yesterdayData = response.data;
 			},
 			showHidetab(e) {
 				let tab_trigger = document.querySelectorAll('.tab_trigger li');
@@ -256,6 +262,7 @@
 			this.pollData();
 			this.fetchworldData();
 			this.fetchCoronaList();
+			this.getYesterdayData('Philippines');
 		},
 		beforeDestroy() {
 			clearInterval(this.polling)
