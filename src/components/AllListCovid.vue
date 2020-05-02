@@ -30,7 +30,7 @@
 								</li>
 								<li class="col-md-4">
 									<div>
-										<h4 class="bg-danger">Today Deaths</h4>
+										<h4 class="bg-danger">Today's Death</h4>
 										<div>
 											<p><animated-number :value="coronaList.todayDeaths" :formatValue="formatNum" :duration="3000"/></p>
 											<!-- <label class="mt-"><span class="bg-danger">Yesterday</span></label> -->
@@ -66,14 +66,6 @@
 										<h4 class="bg-warning">Critical</h4>
 										<div>
 											<p><animated-number :value="coronaList.critical" :formatValue="formatNum" :duration="3000"/></p>
-										</div>
-									</div>
-								</li>
-								<li class="col-md-4">
-									<div>
-										<h4 class="bg-pink">Affected Countries</h4>
-										<div>
-											<p><animated-number :value="coronaList.affectedCountries" :formatValue="formatNum" :duration="3000"/></p>
 										</div>
 									</div>
 								</li>

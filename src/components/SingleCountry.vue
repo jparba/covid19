@@ -23,7 +23,7 @@
 					</li>
 					<li class="col-md-4">
 						<div>
-							<h4 class="bg-danger">Today Deaths</h4>
+							<h4 class="bg-danger">Today's Death</h4>
 							<div>
 								<p><animated-number :value="singleCountry.todayDeaths" :formatValue="formatNum" :duration="1000"/></p>
 								<!-- <label class="mt-"><span class="bg-danger">Yesterday</span></label> -->

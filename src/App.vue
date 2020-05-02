@@ -27,7 +27,7 @@ export default {
         const today = new Date();
         const monthName = today.toLocaleString('default', { month: 'long',  });
         const weekday = ' | '+today.toLocaleString('default', { weekday: 'long' });
-        const date = monthName+' '+today.getDate()+','+today.getFullYear();
+        const date = monthName+' '+today.getDate()+', '+today.getFullYear();
         const time = today.toLocaleString('default', { hour: 'numeric', minute: 'numeric', second: 'numeric' ,hour12: true });
         return this.date = 'Today : '+date+' '+ weekday + ' ' + time;
 
