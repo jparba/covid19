@@ -44,7 +44,7 @@
 										<h4 class="bg-success">Total recovered</h4>
 										<div>
 											<p><animated-number :value="coronaList.recovered" :formatValue="formatNum" :duration="3000"/></p>
-											<label><animated-number :value="coronaList.recovered - todayRecovered" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-white">Recoveries Today</span></label>
+											<label><animated-number :value="coronaList.recovered - todayRecovered" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-success">Recoveries Today</span></label>
 										</div>
 									</div>
 								</li>
