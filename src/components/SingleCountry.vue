@@ -35,6 +35,7 @@
 							<h4 class="bg-success">Total recovered</h4>
 							<div>
 								<p><animated-number :value="singleCountry.recovered" :formatValue="formatNum" :duration="1000"/></p>
+								<label><animated-number :value="singleCountry.recovered - todayRecovered" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-success">Recoveries Today</span></label>
 							</div>
 						</div>
 					</li>
@@ -80,6 +81,7 @@
 				singleCountry: [],
 				polling: null,
 				yesterdayData: [],
+				todayRecovered: ''
 			}
 		},
 		components: {
@@ -110,6 +112,7 @@
 			},
 			async getYesterdayData() {
 				let response = await axios.get(`https://corona.lmao.ninja/v2/countries/${this.country}?yesterday=true&strict=true&query`);
+					this.todayRecovered = response.data.recovered;
 				return this.yesterdayData = response.data;
 			},
 			pollData() {
