@@ -70,6 +70,7 @@ header{
 	max-width: 650px;
 }
 .z2{
+	position: relative;
 	z-index: 2;
 }
 .posr{
@@ -246,6 +247,26 @@ header{
 		}
 		&:last-child{
 			border-top-right-radius: 5px;
+		}
+	}
+}
+
+.region_list{
+	h4{
+		color: white;
+		background-color: #28a745;
+	}
+	border: 1px solid white;
+	ul{
+		margin-bottom: 0;
+		li{
+			padding: 5px 10px;
+			cursor: pointer;
+			background-color: rgba(0, 0, 0, .4);
+			border-bottom: 1px solid white;
+			&.active, &:hover{
+				background-color: #28a745;
+			}
 		}
 	}
 }

@@ -2,14 +2,14 @@ import axios from 'axios'
 
 const state = {
 	loading: true,
-	coronaLists: [],
 	worldData: [],
+	coronaLists: [],
 }
 
 const getters = {
-	coronaLists: state => state.coronaLists,
-	worldData: state => state.worldData,
 	loading: state => state.loading,
+	worldData: state => state.worldData,
+	coronaLists: state => state.coronaLists,
 }
 
 const actions = {

@@ -5,6 +5,7 @@ import store from './store'
 import VueRouter from 'vue-router'
 import Credits from './components/Credits.vue'
 import TopPage from './components/TopPage.vue'
+import RegionData from './components/RegionData.vue'
 import AllListCovid from './components/AllListCovid.vue'
 import NothingFound from './components/NothingFound.vue'
 import SingleCountry from './components/SingleCountry.vue'
@@ -21,13 +22,6 @@ Vue.mixin({
 			if(!isNaN(num)) {
 				return num.toFixed().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
-		},
-		updatedTime(x) {
-			const today = new Date(x);
-			const monthName = today.toLocaleString('default', { month: 'long',  });
-			const date = monthName+' '+today.getDate()+','+today.getFullYear();
-			const time = today.toLocaleString('default', { hour: 'numeric', minute: 'numeric', hour12: true });
-			return time+ ' ' + date;
 		},
 	}
 
@@ -57,6 +51,19 @@ const router = new VueRouter({
 				{
 					name: 'description',
 					content: 'Jparba.com'
+				},
+				]
+			},
+		},
+		{
+			path: '/covid-19/region',
+			component: RegionData,
+			meta: {
+				title: 'JPARBA | Covid-19 Bulletin - Region',
+				metaTags: [
+				{
+					name: 'description',
+					content: 'Jparba.com covid-19'
 				},
 				]
 			},

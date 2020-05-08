@@ -15,6 +15,8 @@
 			</ul>
 			<div class="singlerecord text-center mb-5">
 				<div class="tab_content _1">
+					<!-- <router-link to="/covid-19/region" class="btn btn-primary float-right z2">Click to view data by region</router-link> -->
+					<div class="clearfix"></div>
 					<div v-for="(coronaList, index) in coronaLists" :key="index">
 						<div v-if="coronaList.country == 'Philippines'">
 							<p class="totalcase"><animated-number :value="coronaList.cases" :formatValue="formatNum" :duration="3000"/><span>Confirmed cases</span></p>
@@ -42,6 +44,7 @@
 										<h4 class="bg-success">Total recovered</h4>
 										<div>
 											<p><animated-number :value="coronaList.recovered" :formatValue="formatNum" :duration="3000"/></p>
+											<label><animated-number :value="coronaList.recovered - todayRecovered" :formatValue="formatNum" :duration="1000"/><span class="ml-1 bg-white">Recoveries Today</span></label>
 										</div>
 									</div>
 								</li>
@@ -220,7 +223,9 @@
 			return {
 				polling: null,
 				label: 'Philippines cases',
-				yesterdayData: []
+				yesterdayData: [],
+				phDataByRegion: [],
+				todayRecovered: ''
 			}
 		},
 		components: {
@@ -237,6 +242,7 @@
 			},
 			async getYesterdayData(countryName) {
 				let response = await axios.get(`https://corona.lmao.ninja/v2/countries/${countryName}?yesterday=true&strict=true&query`);
+					this.todayRecovered = response.data.recovered;
 				return this.yesterdayData = response.data;
 			},
 			showHidetab(e) {
