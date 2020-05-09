@@ -5,6 +5,7 @@ import store from './store'
 import VueRouter from 'vue-router'
 import Credits from './components/Credits.vue'
 import TopPage from './components/TopPage.vue'
+import infiniteScroll from 'vue-infinite-scroll'
 import RegionData from './components/RegionData.vue'
 import AllListCovid from './components/AllListCovid.vue'
 import NothingFound from './components/NothingFound.vue'
@@ -12,7 +13,9 @@ import SingleCountry from './components/SingleCountry.vue'
 import ServiceUnavailable from './components/ServiceUnavailable.vue'
 
 
+
 Vue.use(VueRouter);
+Vue.use(infiniteScroll);
 
 Vue.config.productionTip = false
 
@@ -128,5 +131,6 @@ next();
 new Vue({
 	router,
 	store,
+	directives: {infiniteScroll},
   render: h => h(App),
 }).$mount('#app')

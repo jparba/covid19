@@ -255,6 +255,8 @@ header{
 	h4{
 		color: white;
 		background-color: #28a745;
+		font-size: 18px;
+		padding: 10px;
 	}
 	border: 1px solid white;
 	ul{
@@ -264,9 +266,38 @@ header{
 			cursor: pointer;
 			background-color: rgba(0, 0, 0, .4);
 			border-bottom: 1px solid white;
+			font-size: 12px;
 			&.active, &:hover{
 				background-color: #28a745;
 			}
+		}
+	}
+}
+
+.patient_profile{
+	ul{
+		margin-bottom: 0;
+	}
+	li{
+		font-size: 14px;
+		p{
+			min-width: 105px;
+			position: relative;
+			&:after{
+				content: ':';
+				position: absolute;
+				right: 0;
+			}
+		}
+		span{
+			margin-left: 4px;
+		}
+	}
+	div{
+		padding: 5px;
+		border-radius: 5px;
+		div{
+			min-width: 100px;
 		}
 	}
 }
@@ -304,6 +335,13 @@ header{
   animation: spinner-grow .75s linear infinite;
 }
 
+@media only screen and (max-width: 991px) {
+	.patient_profile{
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
 @media only screen and (max-width: 850px) {
 	.country_affected{
 		.col-md-4{
@@ -311,6 +349,15 @@ header{
 		    flex: 0 0 50%;
 		    max-width: 50%;
 		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.region_list{
+		display: none;
+	}
+	select.d-none{
+		display: block!important;
 	}
 }
 
@@ -346,6 +393,15 @@ header{
 		li{
 			font-size: 14px;
 			min-width: 145px;
+		}
+	}
+	.patient_profile{
+		div{
+			align-items: center;
+			flex-direction: column;
+			padding-bottom: 15px;
+			div{
+			}
 		}
 	}
 }
