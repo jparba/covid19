@@ -396,11 +396,15 @@ header{
 		}
 	}
 	.patient_profile{
+		ul{
+			align-self: self-start;
+		}
 		div{
 			align-items: center;
 			flex-direction: column;
-			padding-bottom: 15px;
+			padding: 0 10px 10px 10px;
 			div{
+				padding-bottom: 0;
 			}
 		}
 	}
