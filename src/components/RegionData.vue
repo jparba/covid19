@@ -56,7 +56,7 @@
 			return{
 				loading: true,
 				fetching: true,
-				chooseRegion: 'CARAGA',
+				chooseRegion: 'Region I: Ilocos Region',
 				regionData: {
 					'Region I: Ilocos Region': { capital: 'San Fernando (La Union)', data: []},
 					'Region II: Cagayan Valley': { capital: 'Tuguegarao', data: []},
@@ -79,16 +79,6 @@
 			}
 		},
 		methods: {
-			loadMore: function() {
-				this.busy = true;
-				setTimeout(() => {
-					for (var i = 0, j = 10; i < j; i++) {
-						this.data.push({ name: this.count++ });
-					}
-					this.busy = false;
-				}, 1000);
-				console.log('test');
-			},
 			async filterRegion(region) {
 				this.chooseRegion = region;
 			},
@@ -131,7 +121,7 @@
 		},
 		created() {
 			this.phByRegion();
-			this.filterRegion('CARAGA');
+			this.filterRegion('Region I: Ilocos Region');
 		}
 	}
 </script>
