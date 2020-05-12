@@ -40,7 +40,7 @@ const router = new VueRouter({
 				metaTags: [
 				{
 					name: 'description',
-					content: 'Jparba.com homepage'
+					content: 'Jparba homepage'
 				},
 				]
 			}
@@ -53,7 +53,7 @@ const router = new VueRouter({
 				metaTags: [
 				{
 					name: 'description',
-					content: 'Jparba.com'
+					content: 'Jparba coronavirus, covid19'
 				},
 				]
 			},
