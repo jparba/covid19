@@ -15,7 +15,7 @@
 			</ul>
 			<div class="singlerecord text-center mb-5">
 				<div class="tab_content _1">
-					<!-- <router-link to="/covid-19/region" class="btn btn-primary float-right z2">Click to view data by region</router-link> -->
+					<router-link to="/covid-19/region" class="btn btn-primary float-right z2">Click to view data by region</router-link>
 					<div class="clearfix"></div>
 					<div v-for="(coronaList, index) in coronaLists" :key="index">
 						<div v-if="coronaList.country == 'Philippines'">
