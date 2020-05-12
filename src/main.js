@@ -68,6 +68,10 @@ const router = new VueRouter({
 					name: 'description',
 					content: 'Jparba.com covid-19'
 				},
+				{
+					name: 'robots',
+					content: 'noindex'
+				},
 				]
 			},
 		},
