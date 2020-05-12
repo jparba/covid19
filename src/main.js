@@ -66,11 +66,7 @@ const router = new VueRouter({
 				metaTags: [
 				{
 					name: 'description',
-					content: 'Jparba.com covid-19'
-				},
-				{
-					name: 'robots',
-					content: 'noindex'
+					content: 'Jparba covid-19 display by region'
 				},
 				]
 			},
@@ -79,6 +75,19 @@ const router = new VueRouter({
 			path: '/covid-19/country/:country',
 			component: SingleCountry,
 			props: true,
+			meta: {
+				title: 'JPARBA | Covid-19 Bulletin - Country',
+				metaTags: [
+				{
+					name: 'description',
+					content: 'Jparba covid-19 display by country'
+				},
+				{
+					name: 'robots',
+					content: 'noindex'
+				},
+				]
+			},
 		},
 		{
 			path: '/covid-19/credits',
